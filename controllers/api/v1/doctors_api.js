@@ -30,7 +30,6 @@ module.exports.register = async function(req, res){
 
 module.exports.login = async function(req, res){
   try{
-    console.log(req.body);
     let doctor = await Doctor.findOne({username: req.body.username});
     console.log(doctor);
     if(!doctor || doctor.password != req.body.password){
@@ -38,10 +37,12 @@ module.exports.login = async function(req, res){
         message: "Invalid username or passowrd"
       });
     }
-
+    doctor = doctor.toJSON();
+    delete doctor.password;
     return res.status(200).json({
       message: "Login successful",
-      token: jwt.sign(doctor.toJSON(), 'abc', {expiresIn: '100000'})
+      doctor: doctor,
+      token: jwt.sign(doctor, 'abc', {expiresIn: '100000'})
     })
   }catch(err){
     return res.status(500).json({

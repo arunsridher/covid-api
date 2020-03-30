@@ -18,7 +18,6 @@ const app = express();
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 
-
 //redirect all urls to routes index.js
 app.use('/', require('./routes'));
 
