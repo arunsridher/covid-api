@@ -1,16 +1,23 @@
 //include express
 const express = require('express');
 const port = 8000;
-const app = express();
 
 //include database
-const db = require('./config/database');
+const db = require('./config/mongoose');
+
+//include passport library
+const passport = require('passport');
+
+//include passport jwt config file
+const passportJWT = require('./config/passport-jwt-strategy');
+
+const app = express();
+
 
 //to parse form data
-app.use(express.urlencoded());
-var bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
 
 //redirect all urls to routes index.js
 app.use('/', require('./routes'));
