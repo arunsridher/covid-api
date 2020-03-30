@@ -5,10 +5,10 @@ const express = require('express');
 const router = express.Router();
 
 //include doctors api
-const doctorsApi = require('../../../controllers/api/v1/doctors_api');
+const doctorsController = require('../../../controllers/api/v1/doctorsController');
 
-router.post('/register', doctorsApi.register);
-router.post('/login', doctorsApi.login);
+router.post('/register', doctorsController.register);
+router.post('/login', doctorsController.login);
 
 //export router
 module.exports = router;

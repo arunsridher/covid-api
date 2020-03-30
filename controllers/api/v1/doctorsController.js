@@ -41,7 +41,6 @@ module.exports.login = async function(req, res){
     delete doctor.password;
     return res.status(200).json({
       message: "Login successful",
-      doctor: doctor,
       token: jwt.sign(doctor, 'abc', {expiresIn: '100000'})
     })
   }catch(err){

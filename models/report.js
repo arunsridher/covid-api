@@ -16,13 +16,13 @@ const reportSchema = new mongoose.Schema({
     required: true,
     enum: ['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine', 'Positive-Admit']
   },
-  date :{
-    type: Date,
+  date : {
+    type: String,
     required: true
   }
 },{
   timestamps: true
 });
 
-const Report = mongoose.Schema('Report', reportSchema);
+const Report = mongoose.model('Report', reportSchema);
 module.exports = Report;
