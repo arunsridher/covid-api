@@ -4,6 +4,7 @@
   "description": "An API for the doctors of a Hospital for testing and quarantine + well being of  COVID-19 patients",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

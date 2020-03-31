@@ -14,7 +14,7 @@ const passportJWT = require('./config/passport-jwt-strategy');
 const app = express();
 
 
-//to parse form data
+//middleware to parse form data
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 

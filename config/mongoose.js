@@ -12,4 +12,5 @@ db.once('open', function() {
   console.log("Successfully connected to the database");
 });
 
+//export the db
 module.exports = db;
