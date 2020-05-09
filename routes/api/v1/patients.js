@@ -10,10 +10,11 @@ const passport = require('passport');
 const patientsController = require('../../../controllers/api/v1/patientsController');
 
 //authenticate using jwt strategy
-router.get('/:id/create_report', passport.authenticate('jwt', {session:false}), patientsController.createReport);
-router.get('/:id/all_reports', passport.authenticate('jwt', {session:false}), patientsController.allReports);
-//authenticate using jwt strategy
 router.post('/register', passport.authenticate('jwt', {session:false}), patientsController.registerPatient);
+
+router.get('/:id/create_report', passport.authenticate('jwt', {session:false}), patientsController.createReport);
+
+router.get('/:id/all_reports', passport.authenticate('jwt', {session:false}), patientsController.allReports);
 
 //export router
 module.exports = router;

@@ -38,7 +38,13 @@ module.exports.createReport = async function(req, res){
   try{
     //check if the doctor and patient are valid
     let doctor = await Doctor.findById(req.user.id);
-    let patient = await Patient.findById(req.params.id);
+    let patient = await Patient.findById(req.params.id, function(err){
+      if(err){
+        return res.status(401).json({
+          message: "Invalid details"
+        });
+      }
+    })
     if(doctor && patient){
       //randomly select a status from the given options
       let statusArray = ['Negative', 'Travelled-Quarantine', 'Symptoms-Quarantine', 'Positive-Admit'];
