@@ -19,7 +19,7 @@ describe('Reports', () => {
   */
 	
 	// update token before running test cases
-	let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2YTk2YjIxZDkzOTU4NDg4MjJkYTUiLCJ1c2VybmFtZSI6ImFydW5zcmlkaGVyIiwiY3JlYXRlZEF0IjoiMjAyMC0wNS0wOVQxMzowMDoyNy42NDZaIiwidXBkYXRlZEF0IjoiMjAyMC0wNS0wOVQxMzowMDoyNy42NDZaIiwiX192IjowLCJpYXQiOjE1ODkwMzE2NTIsImV4cCI6MTU4OTAzMjY1Mn0.w3T7JplUWbmyFdXNbYJ8Df047eCadmfwwv75UqULu-o';
+	let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2YjgxYWFlNjZlODNlZjQ0YWJlMDIiLCJ1c2VybmFtZSI6InJhbmRvbSIsImNyZWF0ZWRBdCI6IjIwMjAtMDUtMDlUMTQ6MDM6MDYuODgyWiIsInVwZGF0ZWRBdCI6IjIwMjAtMDUtMDlUMTQ6MDM6MDYuODgyWiIsIl9fdiI6MCwiaWF0IjoxNTg5MDMzMzY2LCJleHAiOjE1ODkwMzQzNjZ9.rq6Ygn9O9grEidb9-XuKQ9-m4mNmlHHPjN19LjlVL6Y';
 	
 	let authBearerToken = 'bearer ' + token;
 
