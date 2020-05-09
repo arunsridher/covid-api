@@ -5,8 +5,9 @@ const Report = require('../../../models/report');
 
 //register a new patient if doesnt exist
 module.exports.registerPatient = async function(req, res){
+  console.log(req.body.mobile);
   try{
-    console.log("inside registerPatient ", req.user);
+    // console.log("inside registerPatient ", req.user);
     //find the patient with given mobile number
     let patient = await Patient.findOne({mobile: req.body.mobile});
     if(patient){

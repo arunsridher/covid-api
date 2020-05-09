@@ -32,7 +32,7 @@ An API for the doctors of a Hospital for creating and retriving patient details 
   * Response : On successful login a JWT token which has to be used for further queries
 
 ### Register a patient
-  * [Route](http://localhost:8000/api/v1/register_patient)
+  * [Route](http://localhost:8000/api/v1/patients/register)
   * Method : POST
   * Request parameters: mobile
   * Request Header :    

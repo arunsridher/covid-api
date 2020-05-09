@@ -25,7 +25,7 @@ describe('Doctors', () => {
 	  		username: username
 	  	}
 			chai.request(server)
-		    .post('/api/v1/doctors/register')
+        .post('/api/v1/doctors/register')
 		    .send(doctor)
 		    .end((err, res) => {
 			  	res.should.have.status(500);
@@ -124,7 +124,7 @@ describe('Doctors', () => {
     });
     it('it should login if username and password fields match and return a token', (done) => {
       let doctor = {
-        username: "arunsridher1589017939686",
+        username: "arunsridher1589020858194",
         password: "password"
       }
       chai.request(server)

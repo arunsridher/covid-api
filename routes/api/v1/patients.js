@@ -12,6 +12,8 @@ const patientsController = require('../../../controllers/api/v1/patientsControll
 //authenticate using jwt strategy
 router.get('/:id/create_report', passport.authenticate('jwt', {session:false}), patientsController.createReport);
 router.get('/:id/all_reports', passport.authenticate('jwt', {session:false}), patientsController.allReports);
+//authenticate using jwt strategy
+router.post('/register', passport.authenticate('jwt', {session:false}), patientsController.registerPatient);
 
 //export router
 module.exports = router;
