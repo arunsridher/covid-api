@@ -82,6 +82,13 @@ module.exports.createReport = async function(req, res){
 //retrieve all reports of a patient
 module.exports.allReports = async function(req, res){
   try{
+    await Patient.findById(req.params.id, function(err){
+      if(err){
+        return res.status(401).json({
+          message: "Invalid details"
+        });
+      }
+    })
     //fetch the reports of the given patient
     let reports = await Patient.findById(req.params.id)
     .sort('-createdAt')
@@ -91,8 +98,9 @@ module.exports.allReports = async function(req, res){
     });
     //if patient found send his reports
     return res.status(200).json({
+      patientMobile: reports.mobile,
       message: "All Reports of " + reports.mobile,
-        reports: reports.reports
+      reports: reports.reports
     });
   }catch(err){
     return res.status(500).json({
