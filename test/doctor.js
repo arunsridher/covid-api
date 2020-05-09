@@ -1,3 +1,14 @@
+/*
+
+res.should.have.status(200);  ->  response should have a status of 200
+res.body.should.be.a('object'); ->  response body should be an object
+res.body.should.have.property('message'); ->  response body should have a property message
+res.body.should.have.property('message').eql('All Reports of ' + res.body.patientMobile); -> and it should be equal to patients mobile
+res.body.reports.should.be.a('array'); -> reports hould be an array
+
+
+*/
+
 //During the test the env variable is set to test
 process.env.NODE_ENV = 'test';
 
