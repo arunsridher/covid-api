@@ -53,7 +53,7 @@ module.exports.login = async function(req, res){
     return res.status(200).json({
       message: "Login successful",
       //sign the token using jwt with the given secret key and set the expiry duration
-      token: jwt.sign(doctor, 'abc', {expiresIn: '100000'})
+      token: jwt.sign(doctor, 'abc', {expiresIn: '1000000'})
     })
   }catch(err){
     return res.status(500).json({
