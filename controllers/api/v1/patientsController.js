@@ -18,11 +18,12 @@ module.exports.registerPatient = async function(req, res){
     }
     else{
       //if a patient with the given mobile number doesnt exist create one
-      await Patient.create({
+      patient = await Patient.create({
         mobile: req.body.mobile
       });
       return res.status(200).json({
-        message: "Patient registered successfully"
+        message: "Patient registered successfully",
+        patient: patient
       })
     }
   }catch(err){

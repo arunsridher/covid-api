@@ -23,7 +23,7 @@ An API for the doctors of a Hospital for creating and retriving patient details 
   * [Route](http://localhost:8000/api/v1/doctors/register)
   * Method : POST
   * Request parameters: username and password
-  * Response : Newly created doctor if registered successfully or failure message
+  * Response : Message stating success or failure
 
 ### Doctor's Login
   * [Route](http://localhost:8000/api/v1/doctors/login)
@@ -38,7 +38,7 @@ An API for the doctors of a Hospital for creating and retriving patient details 
   * Request Header :    
     - Key: Authorization    
     - Value: bearer <token>
-  * Response: Returns newly created patient or failure message
+  * Response: Returns newly created patient or patient info if patient already exists or failure message
 
 ### Create a new report for the given patient
   * [Route](http://localhost:8000/api/v1/patients/:id/create_report)
