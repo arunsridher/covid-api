@@ -35,11 +35,12 @@ describe('Patients', () => {
 			});
 	});
 
-	it('it should not create a patient if mobile field is missing', (done) => {
+	// update authorization before running test cases
+	it('it should not create a patient if mobile field is missing and authorization is valied', (done) => {
 		let patient = {}
 		chai.request(server)
 			.post('/api/v1/patients/register')
-			.set('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2ODhiYWRiMjgwMTNhYzA2Y2ExOWQiLCJ1c2VybmFtZSI6ImFydW5zcmlkaGVyMTU4OTAyMDg1ODE5NCIsImNyZWF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsInVwZGF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsIl9fdiI6MCwiaWF0IjoxNTg5MDIzNzQyLCJleHAiOjE1ODkwMjQ3NDJ9.yxpGrpK-DGGjRvsH8vQDlNLBiNUrwfYYLIrKBjZ4ucw')
+			.set('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2ODhiYWRiMjgwMTNhYzA2Y2ExOWQiLCJ1c2VybmFtZSI6ImFydW5zcmlkaGVyMTU4OTAyMDg1ODE5NCIsImNyZWF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsInVwZGF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsIl9fdiI6MCwiaWF0IjoxNTg5MDI0NjUwLCJleHAiOjE1ODkwMjU2NTB9.8WLMTtKT2lcMurz8SfIgW99vJTNfpR5PJV7f2EwRA4E')
 			.send(patient)
 			.end((err, res) => {
 				res.should.have.status(500);
@@ -50,6 +51,7 @@ describe('Patients', () => {
 			});
 	});
 
+	// update authorization before running test cases
 	let mobileNum = (Math.floor(Math.random() * 9000000000) + 1000000000).toString();
 	it('register a patient if valid authorization and has mobile number', (done) => {
 		let patient = {
@@ -71,6 +73,7 @@ describe('Patients', () => {
 			});
 	});
 
+	// update authorization before running test cases
 	it('return patient details if valid authorization and patient already exists with the given number', (done) => {
 		let patient = {
 			mobile: mobileNum
