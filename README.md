@@ -13,8 +13,11 @@ An API for the doctors of a Hospital for creating and retriving patient details 
 ## Set up and execution
 * Clone the repository from [here](https://github.com/arunsridher/covid-api.git)
 * Move to the cloned folder
-* Install all the necessary dependencies (your system should have node and npm)
-* Run the application using the command "npm start"
+* Install all the necessary dependencies using the command npm install
+* Use services like postman for getting the bearer token
+* Add bearer token in the patient and reports test files in the specified variable
+* Add patient id at specified places in the aptient test file
+* Run the application using the command "npm test"
 
 ## Request routes
 [Base url](http://localhost:8000/api/v1)
@@ -59,7 +62,7 @@ An API for the doctors of a Hospital for creating and retriving patient details 
   * Response: Returns all reports of the patient if request successful otherwise failure message
 
 ### List all the reports of all the patients filtered by a specific status
-  * [Route](http://localhost:8000/api/v1//reports/:status)
+  * [Route](http://localhost:8000/api/v1/reports/:status)
   * Method : GET
   * Request Header :    
     - Key: Authorization    

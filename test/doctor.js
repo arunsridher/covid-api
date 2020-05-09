@@ -124,8 +124,8 @@ describe('Doctors', () => {
     });
     it('it should login if username and password fields match and return a token', (done) => {
       let doctor = {
-        username: "arunsridher1589020858194",
-        password: "password"
+        username: "arunsridher",
+        password: "test"
       }
       chai.request(server)
         .post('/api/v1/doctors/login')

@@ -19,7 +19,7 @@ describe('Patients', () => {
   */
 	
 	// update token before running test cases
-	let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2ODhiYWRiMjgwMTNhYzA2Y2ExOWQiLCJ1c2VybmFtZSI6ImFydW5zcmlkaGVyMTU4OTAyMDg1ODE5NCIsImNyZWF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsInVwZGF0ZWRBdCI6IjIwMjAtMDUtMDlUMTA6NDA6NTguMjY4WiIsIl9fdiI6MCwiaWF0IjoxNTg5MDI4NDExLCJleHAiOjE1ODkwMjk0MTF9.lqfgEYy4Z6tXAR8mfP-nbxk-lehlK5UJK_TDV9ZfuT4';
+	let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZWI2YTk2YjIxZDkzOTU4NDg4MjJkYTUiLCJ1c2VybmFtZSI6ImFydW5zcmlkaGVyIiwiY3JlYXRlZEF0IjoiMjAyMC0wNS0wOVQxMzowMDoyNy42NDZaIiwidXBkYXRlZEF0IjoiMjAyMC0wNS0wOVQxMzowMDoyNy42NDZaIiwiX192IjowLCJpYXQiOjE1ODkwMzE2NTIsImV4cCI6MTU4OTAzMjY1Mn0.w3T7JplUWbmyFdXNbYJ8Df047eCadmfwwv75UqULu-o';
 	
 	let authBearerToken = 'bearer ' + token;
 	
@@ -132,7 +132,7 @@ describe('Patients', () => {
 		});
 
 		it('it should create a report if patient id is valid and authorization is valid', (done) => {
-			let patientId = '5eb699b2bb688e4864564bea';
+			let patientId = '5eb6a9d480d8ac3a784f9c3b';
 			chai.request(server)
 				.get(`/api/v1/patients/${patientId}/create_report`)
 				.set('Authorization', authBearerToken)
@@ -151,7 +151,7 @@ describe('Patients', () => {
 
 
 	/*
-  * Test the /GET route for fetching all the reports of a patient
+	* Test the /GET route for fetching all the reports of a patient
   */
 	describe('/GET all reports of a patient', () => {
 
@@ -181,8 +181,11 @@ describe('Patients', () => {
 				});
 		});
 
+		/*
+			ADD PATIENT ID BELOW
+		*/
 		it('it should fetch all reports if patient id is valid and authorization is valid', (done) => {
-			let patientId = '5eb699b2bb688e4864564bea';
+			let patientId = '5eb6a9d480d8ac3a784f9c3b';
 			chai.request(server)
 				.get(`/api/v1/patients/${patientId}/all_reports`)
 				.set('Authorization', authBearerToken)
@@ -197,7 +200,5 @@ describe('Patients', () => {
 					done();
 				});
 		});
-
 	});
-
- });
+});
