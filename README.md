@@ -1,45 +1,68 @@
 # covid-api
-An API for the doctors of a Hospital for creating and retriving patients affected with covid
 
-# Set up and execution
+## Requirements
+You can find the task requirements [here](https://docs.google.com/document/d/1z3PhoPuouGzGQxp9kTms47ctYMeUq2xHwdJKWivj3wA/edit)
 
-1. Clone the repository from https://github.com/arunsridher/covid-api.git
-2. Move to the cloned folder
-3. Install all the necessary dependencies (your system should have node and npm)
-4. Run the application using the command "npm start"
+## Description
+An API for the doctors of a Hospital for creating and retriving patient details affected with covid
 
-# Request routes - Base url: http://localhost:8000/api/v1
+## Prerequisites
+  * Node
+  * MongoDB
 
-1. /doctors/register -> register a new doctor
+## Set up and execution
+* Clone the repository from [here](https://github.com/arunsridher/covid-api.git)
+* Move to the cloned folder
+* Install all the necessary dependencies (your system should have node and npm)
+* Run the application using the command "npm start"
+
+## Request routes
+[Base url](http://localhost:8000/api/v1)
+
+* Register a new doctor
+  [Route](http://localhost:8000/api/v1/doctors/register)
   Method : POST
   Request parameters: username and password
-  Response : Message indication request status success/failure
+  Response : Newly created doctor if registered successfully or failure message
 
-2. /doctors/login -> doctors login
+* Doctor's Login
+  [Route](http://localhost:8000/api/v1/doctors/login)
   Method : POST
   Request parameters: username and password
   Response : On successful login a JWT token which has to be used for further queries
 
-3. /register_patient -> register a patient
+* Register a patient
+  [Route](http://localhost:8000/api/v1/register_patient)
   Method : POST
   Request parameters: mobile
-  Request Header :    Key: Authorization    Value: bearer <token>
-  Response: if the patient already exists, just return the patient info
+  - Request Header :    
+    Key: Authorization    
+    Value: bearer <token>
+  Response: Returns newly created patient or failure message
 
-4. /patients/:id/create_report -> creates a new report for the given patient
+* Create a new report for the given patient
+  [Route](http://localhost:8000/api/v1/patients/:id/create_report)
   Method : GET
+  - Request Header :    
+    Key: Authorization    
+    Value: bearer <token>
   Request parameters: patient id in the url
-  Request Header :    Key: Authorization    Value: bearer <token>
-  Response: If report created success message and report otherwise failure message
+  Response: Newly created report if request successful or failure message
 
-5. /patients/:id/all_reports → List all the reports of a patient oldest to latest
+* List all the reports of a patient oldest to latest
+  [Route](http://localhost:8000/api/v1/patients/:id/all_reports)
   Method : GET
+  - Request Header :    
+    Key: Authorization    
+    Value: bearer <token>
   Request parameters: patient id in the url
-  Request Header :    Key: Authorization    Value: bearer <token>
-  Response: all reports of the patient if exists otherwise failure message
+  Response: Returns all reports of the patient if request successful otherwise failure message
 
-6. /reports/:status  → List all the reports of all the patients filtered by a specific status
+* List all the reports of all the patients filtered by a specific status
+  [Route](http://localhost:8000/api/v1//reports/:status)
   Method : GET
-  Request Header :    Key: Authorization    Value: bearer <token>
-  Response: all reports that match the status if exists otherwise failure message
+  - Request Header :    
+  Key: Authorization    
+  Value: bearer <token>
+  Response: all reports that match the status if request successful otherwise failure message
   
