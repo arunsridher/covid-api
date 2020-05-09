@@ -1,8 +1,9 @@
 //include mongoose
 const mongoose = require('mongoose');
+const config = require('config');
 
 //connect to the covid database mongodb
-mongoose.connect('mongodb://localhost/covid', {useNewUrlParser: true});
+mongoose.connect(config.DBHost, {useNewUrlParser: true});
 
 //check if connected
 const db = mongoose.connection;

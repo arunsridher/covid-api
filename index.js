@@ -13,10 +13,21 @@ const passportJWT = require('./config/passport-jwt-strategy');
 
 const app = express();
 
+const bodyParser = require('body-parser');
+const config = require('config');
+const morgan = require('morgan');
 
-//middleware to parse form data
-app.use(express.urlencoded({extended:true}));
-app.use(express.json());
+//don't show the log when it is test
+if(config.util.getEnv('NODE_ENV') !== 'test') {
+	//use morgan to log at command line
+	app.use(morgan('combined')); //'combined' outputs the Apache style LOGs
+}
+
+//parse application/json and look for raw text                                        
+app.use(bodyParser.json());                                     
+app.use(bodyParser.urlencoded({extended: true}));               
+app.use(bodyParser.text());                                    
+app.use(bodyParser.json({ type: 'application/json'}));
 
 //redirect all urls to routes index.js
 app.use('/', require('./routes'));
@@ -29,3 +40,5 @@ app.listen(port, function(err){
   console.log(`Express is running on the port: ${port}`);
 });
 
+// for testing
+module.exports = app;

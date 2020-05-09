@@ -41,7 +41,6 @@ module.exports.login = async function(req, res){
   try{
     //fetch a doctor with the given username
     let doctor = await Doctor.findOne({username: req.body.username});
-    console.log(doctor);
     //if doctor not found or passwords doesn't match
     if(!doctor || doctor.password != req.body.password){
       return res.status(401).json({
@@ -54,7 +53,7 @@ module.exports.login = async function(req, res){
     return res.status(200).json({
       message: "Login successful",
       //sign the token using jwt with the given secret key and set the expiry duration
-      token: jwt.sign(doctor, 'abc', {expiresIn: '1000000'})
+      token: jwt.sign(doctor, 'abc', {expiresIn: '100000'})
     })
   }catch(err){
     return res.status(500).json({
